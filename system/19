@@ -1,0 +1,5 @@
+#!/bin/bash
+iptables -A INPUT -j DROP
+
+# -A append to rule to the end
+# -j specify the target of the rule

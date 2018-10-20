@@ -1,0 +1,10 @@
+#!/bin/bash
+crontab -l > cron_file
+echo "@midnight \
+	CHECK1=\"\$(md5sum /etc/crontab | awk '{ print \ $1 }')\" && \
+	CHECK2=\"\$(cat /etc/crontab.log)\" && \
+	if [ '\$CHECK1' != '$\CHECK2'] ; then \
+		md5sum /etc/crontab | awk '{ print \$1 }' > /etc/crontab.log && \
+		mail -s '/etc/crontab modified' root ; fi" >> cron_file
+crontab cron_file
+rm cron_file

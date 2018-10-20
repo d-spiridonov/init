@@ -1,0 +1,2 @@
+#!/bim/bash
+service ssh status #under sudo. Make sure to install ssh via apt-get install openssh-server

@@ -1,0 +1,6 @@
+#!/bin/bash
+du -sh /var/
+
+# du - space usage
+# -s summarize
+# -h human-readable
